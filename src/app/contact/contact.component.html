@@ -7,9 +7,12 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Search: </mat-label>
-                    <input matInput placeholder="Ex. Contact Name" >
+                    <input matInput type='text'
+                            [(ngModel)]='listFilter' placeholder="John"/>
                 </mat-form-field>
-                <table mat-table [dataSource]="contacts" class="mat-elevation-z8 contact-table">
+
+                <div>
+                  <table mat-table [dataSource]="filteredContacts" class="mat-elevation-z8 contact-table" *ngIf='contacts.length'>
                     
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
@@ -42,6 +45,8 @@
                         *matRowDef="let row; columns: displayedColumns;"
                     ></tr>
                   </table>
+                </div>
+                
             </div>
         </mat-card-content>
     </mat-card>

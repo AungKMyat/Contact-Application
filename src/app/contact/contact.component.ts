@@ -17,6 +17,17 @@ export class ContactComponent implements OnInit {
   errorMessage = '';
   sub!: Subscription;
   contacts: IContact[] = [];
+
+  private _listFilter = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredContacts = this.performFilter(value);
+  }
+
+  filteredContacts: IContact[] = [];
   
   constructor(private contactService: ContactService, public dialog:MatDialog) { }
 
@@ -25,9 +36,11 @@ export class ContactComponent implements OnInit {
     this.sub = this.contactService.getContacts().subscribe({
       next: contacts => {
         this.contacts = contacts;
+        this.filteredContacts = contacts;
       },
       error: err => this.errorMessage = err
     });
+  
   }
 
   ngOnDestroy(): void {
@@ -39,6 +52,12 @@ export class ContactComponent implements OnInit {
       width: '40%',
       data: row
     });
+  }
+
+  performFilter(filterBy: string): IContact[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.contacts.filter((contact: IContact) =>
+      contact.name.toLocaleLowerCase().includes(filterBy));
   }
 
 }
