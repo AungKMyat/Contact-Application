@@ -1,13 +1,37 @@
-
 <div>
-  <mat-form-field appearance="fill">
-    <mat-label>id: </mat-label>
-    <input matInput>
-  </mat-form-field>
-  <h4>id: {{data.id}} </h4>
+  <mat-label>{{data.name}}'s Details</mat-label>
+  <mat-divider></mat-divider>
+</div>
+<div>
+  <table class="mat-table">
+    <tr class="mat-row">
+      <td class="mat-cell">Name</td>
+      <td class="mat-cell">{{data.name}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">Email</td>
+      <td class="mat-cell">{{data.email}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">Address</td>
+      <td class="mat-cell">{{data.address.city}}, {{data.address.zipcode}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td></td>
+      <td class="mat-cell">{{data.address.suite}}, {{data.address.street}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">Phone</td>
+      <td class="mat-cell">{{data.phone}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">Website</td>
+      <td class="mat-cell"><a href="{{data.website}}">{{data.website}}</a></td>
+    </tr>
+  </table>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button (click)="onNoClick()">OK</button>
 </div>
 
 

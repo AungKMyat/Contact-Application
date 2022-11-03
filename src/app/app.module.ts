@@ -15,11 +15,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ContactDetailsComponent } from './contact/contact-details.component';
-
-
-
-
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -39,7 +37,11 @@ import { ContactDetailsComponent } from './contact/contact-details.component';
     MatTableModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

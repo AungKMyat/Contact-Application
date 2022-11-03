@@ -1,0 +1,25 @@
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    width:10%;
+  }
+  .mat-table{
+    width:100%;
+  }
+  .close-icon{
+    float:right;
+  }
+
+  button{
+    margin: auto;
+    width: 40%;
+  }
+
+  mat-divider{
+    width:100%;
+  }
+
+  mat-label{
+    font-size:large;
+  }
